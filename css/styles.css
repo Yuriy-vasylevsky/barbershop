@@ -123,6 +123,34 @@ img {
 .socials-item:not(:last-child) {
    margin-right: 40px;
 }
+
+.social-link {
+   width: 44px;
+   height: 44px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #fff;
+   border-radius:50%;
+}
+.social-icon .icon {
+   width: 20px;
+   height: 20px;
+   fill: var(--title-color);
+}
+.social-icon {
+   display: inline-flex;
+}
+.social-link:hover .icon,
+.social-link:focus .icon  {
+   fill: var(--accente-color);
+
+}
+
+.social-item:not(:last-child) {
+   margin-right: 10px;
+}
+
 .copyright {
    font-weight: 600;
    font-size: 11px;
@@ -227,8 +255,13 @@ img {
 }
 
 /* about us */
-
-
+.about-text {
+   font-size: 14px;
+   margin-bottom: 60px;
+}
+/* .content-box-text {
+   flex-basis: calc((100% - 64px) / 2);
+} */
 
 /* Почему приходят именно к нам?  */
 
