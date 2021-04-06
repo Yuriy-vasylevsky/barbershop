@@ -119,9 +119,18 @@ img {
    font-size: 11px;
    line-height: 1.36;
    color: var(--title-color);
+   align-items: center;
 }
 .socials-item:not(:last-child) {
    margin-right: 40px;
+}
+.line::before {
+   content: "";
+   width: 60px;
+   height: 1px;
+   display: inline-block;
+   background: currentColor;
+   margin-right: 20px;
 }
 
 .social-link {
@@ -183,6 +192,9 @@ img {
    letter-spacing: 0.1em;
    text-transform: uppercase;
    color:var(--title-color);
+   display: flex;
+   align-items: center;
+   
 }
 .grid {
    display: flex;
@@ -247,11 +259,19 @@ img {
    min-height: 100vh;
    display: flex;
    align-items: center;
-
 }
+.hero .container {
+   background-image: url(../img/bg/slider3.png);
+   height: 100vh;
+   background-repeat: no-repeat;
+   background-position: 115px 0;
+}
+
+
 .hero-content {
    /* width: calc(100% / 12 * 5); */
    max-width: 500px;
+   margin-left: 200px;
 }
 
 /* about us */
@@ -280,7 +300,34 @@ img {
 .prici-item {
    display: flex;
    justify-content: space-between;
-   
+}
+.price-list:first-child {
+   background-image: linear-gradient(180deg, #171A24 0%, rgba(23, 26, 36, 0.2) 100%);
+}
+.price-list:last-child {
+   background-image: linear-gradient(180deg, #090B13 0%, rgba(9, 11, 19, 0.2) 100%);
+}
+.price {
+   background-image: url(../img/bg/img.png);
+   background-repeat: no-repeat;
+   /* background-position: center; */
+   background-size: cover;
+}
+
+.prici-item:not(:last-child) {
+   margin-bottom: 20px;
+}
+.price-item-servis {
+   display: flex;
+   flex-grow: 1;
+   align-items: flex-end;
+}
+.price-item-servis::after {
+   content: "";
+   display: block;
+   flex-grow: 1;
+   height: 1px;
+   background-color: rgba(157, 164, 189, 0.12);
 }
 
 /* Почему приходят именно к нам? */
@@ -352,4 +399,27 @@ img {
 
 .dark-bg .navigation {
    color: var(--wight-color);
+}
+
+/* Контакти */
+
+.contact-link .icon {
+   width: 24px;
+   height: 24px;
+   stroke: var(--dark-bg-text-color);
+   margin-right: 20px;
+}
+.contact-link:hover .icon,
+.contact-link:focus .icon {
+ stroke: var(--accente-color);
+}
+.contact-link {
+   display: flex;
+   align-items: center;
+}
+.contact-item:not(:last-child) {
+   margin-bottom: 20px;
+}
+.contact-address {
+   margin-bottom: 70px;
 }
