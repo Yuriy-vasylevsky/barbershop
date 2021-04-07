@@ -60,6 +60,15 @@ img {
    overflow: hidden;
 }
 
+.line::before {
+   content: "";
+   width: 60px;
+   height: 1px;
+   display: inline-block;
+   background: currentColor;
+   margin-right: 20px;
+}
+
 .section {
 padding-top: 130px;
 padding-bottom: 130px;
@@ -85,6 +94,7 @@ color:var(--dark-bg-text-color);
    display: flex;
    justify-content: space-between;
 }
+
 .content-box {
    flex-basis: calc((100% - 30px) / 2);
 }
@@ -146,16 +156,6 @@ color:var(--dark-bg-text-color);
 .socials-item:not(:last-child) {
    margin-right: 40px;
 }
-
-.line::before {
-   content: "";
-   width: 60px;
-   height: 1px;
-   display: inline-block;
-   background: currentColor;
-   margin-right: 20px;
-}
-
 
 /* icon */
 
@@ -316,10 +316,9 @@ border-radius:50%;
    background-position: 115px 0;
 }
 
-
 .hero-content {
-   /* width: calc(100% / 12 * 5); */
-   max-width: 500px;
+   width: calc(100% / 12 * 5);
+   /* max-width: 500px; */
    margin-left: 200px;
 }
 
@@ -336,6 +335,13 @@ border-radius:50%;
 
 /* Услуги и цены */
 
+.price {
+   background-image: url(../img/bg/img.png);
+   background-repeat: no-repeat;
+   /* background-position: center; */
+   background-size: cover;
+}
+
 .price-wrap {
    display: flex;
 }
@@ -348,22 +354,18 @@ border-radius:50%;
    display: flex;
    justify-content: space-between;
 }
+
+.prici-item:not(:last-child) {
+   margin-bottom: 20px;
+}
+
 .price-list:first-child {
    background-image: linear-gradient(180deg, #171A24 0%, rgba(23, 26, 36, 0.2) 100%);
 }
 .price-list:last-child {
    background-image: linear-gradient(180deg, #090B13 0%, rgba(9, 11, 19, 0.2) 100%);
 }
-.price {
-   background-image: url(../img/bg/img.png);
-   background-repeat: no-repeat;
-   /* background-position: center; */
-   background-size: cover;
-}
 
-.prici-item:not(:last-child) {
-   margin-bottom: 20px;
-}
 .price-item-servis {
    display: flex;
    flex-grow: 1;
@@ -437,6 +439,7 @@ border-radius:50%;
    width: 24px;
    height: 24px;
    stroke: var(--dark-bg-text-color);
+   /* fill: var(--dark-bg-text-color); */
    margin-right: 20px;
 }
 .contact-link:hover .icon,
