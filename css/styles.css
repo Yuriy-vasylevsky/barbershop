@@ -9,6 +9,7 @@
    --fonts-title:Raleway;
    --grid-item:2;
    --grid-margin: 30px;
+   --animation: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 html {
    box-sizing: border-box;
@@ -104,7 +105,9 @@ color:var(--dark-bg-text-color);
 .link {
    text-decoration: none;
    color: inherit; 
+   transition: color var(--animation);
 }
+
 .link-decoration {
    text-decoration-line: underline ;
 }
@@ -134,8 +137,11 @@ color:var(--dark-bg-text-color);
    letter-spacing: 0.09em;
    text-transform: uppercase;
    color: var(--title-color);
+   background-color: transparent;
    cursor: pointer;
    text-decoration: none;
+   transition:background-color var(--animation), color var(--animation);
+   cursor: pointer;
 }
 .button:hover,
 .button:focus {
@@ -167,6 +173,10 @@ color:var(--dark-bg-text-color);
 
 .social-icon {
    display: inline-flex;
+}
+
+.social-link .icon {
+   transition: fill var(--animation);
 }
 
 .social-link:hover .icon,
@@ -264,6 +274,11 @@ border-radius:50%;
 /* header */
 
 .header {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   z-index: 100;
    padding-top: 32px;
    padding-bottom: 32px;
    font-weight: 600;
@@ -282,6 +297,7 @@ border-radius:50%;
 }
 
 .header .container {
+   position: relative;
    display: flex;
    justify-content: flex-end;
    align-items: center;
@@ -305,23 +321,46 @@ border-radius:50%;
 /* hero */
 
 .hero {
-   min-height: 100vh;
+   /* min-height: 100vh; */
    display: flex;
    align-items: center;
 }
 .hero .container {
+   position: relative;
    background-image: url(../img/bg/slider3.png);
-   height: 100vh;
+   /* height: 100vh; */
    background-repeat: no-repeat;
    background-position: 115px 0;
+}
+
+.hero-sidebar {
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   width: 115px;
+   display: flex;
+   align-items: flex-end;
+   padding-bottom: 40px;
+   justify-content: center;
+   background-color: #fff;
+}
+
+.hero .socials-list {
+   transform: rotate(-90deg) translateX(50%);
 }
 
 .hero-content {
    width: calc(100% / 12 * 5);
    /* max-width: 500px; */
    margin-left: 200px;
+   padding-top: 272px;
+   padding-bottom: 190px;
 }
 
+.header .button {
+   color: var(--wight-color);
+}
 /* about us */
 
 .about-text {
@@ -332,6 +371,37 @@ border-radius:50%;
 
 /* Почему приходят именно к нам?  */
 
+.benefits-item {
+   flex-basis: calc((100% - 2 * 30px ) / 3);
+   padding: 18px;
+   font-weight: 600;
+   font-size: 11px;
+   line-height: 1.36;
+   text-align: center;
+   color:var(--title-color);
+   background-color:var(--second-bg-color);
+}
+
+.benefits-item:nth-child(even) {
+   /* position: relative;
+   top:35px; */
+   transform: translateY(15px);
+}
+
+.benefits-item:nth-child(odd) {
+   /* position: relative;
+   top:35px; */
+   transform: translateY(-15px);
+}
+
+
+
+.benefits-number {
+   font-weight: 700;
+   font-size: 42px;
+   line-height: 1.36;
+   letter-spacing: 0.05em;
+}
 
 /* Услуги и цены */
 
@@ -379,23 +449,6 @@ border-radius:50%;
    background-color: rgba(157, 164, 189, 0.12);
 }
 
-/* Почему приходят именно к нам? */
-
-.benefits-item {
-   font-weight: 600;
-   font-size: 11px;
-   line-height: 1.36;
-   text-align: center;
-   color:var(--title-color);
-   background-color:var(--second-bg-color);
-}
-
-.benefits-number {
-   font-weight: 700;
-   font-size: 42px;
-   line-height: 1.36;
-   letter-spacing: 0.05em;
-}
 
 /* Наши мастера */
 
@@ -436,23 +489,73 @@ border-radius:50%;
 /* Контакти */
 
 .contact-link .icon {
-   width: 24px;
-   height: 24px;
+   width: 50px;
+   height: 50px;
    stroke: var(--dark-bg-text-color);
    /* fill: var(--dark-bg-text-color); */
    margin-right: 20px;
 }
+
+.contact-link .icon {
+   transition: stroke var(--animation);
+}
+
 .contact-link:hover .icon,
 .contact-link:focus .icon {
  stroke: var(--accente-color);
 }
+
 .contact-link {
    display: flex;
    align-items: center;
 }
+
 .contact-item:not(:last-child) {
    margin-bottom: 20px;
 }
+
 .contact-address {
    margin-bottom: 70px;
+}
+
+.is-hidden{
+   opacity: 0;
+   visibility: hidden;
+   pointer-events: none;
+
+}
+
+.backdrop {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: hsla(226, 21%, 12%, 0.603);
+}
+
+.modal {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 100%;
+   max-width: 400px;
+   min-height: 400px;
+   background-color: #fff;
+   border-radius:30px ;
+}
+
+.btn-close {
+   position: absolute;
+   top: 20px;
+   right: 20px;
+   border: none;
+   background-color:var(--accente-color);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 20px 20px;
+   border-radius: 50%;
+   cursor: pointer;
 }

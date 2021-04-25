@@ -15,7 +15,8 @@
 
 <body>
 	<main>
-		<header class="header dark-bg">
+		<!-- header -->
+		<header class="header">
 			<div class="container">
 				<nav class="navigation">
 					<a class="logo" href="./"><img src="./img/logo.svg" alt="логотип"></a>
@@ -31,19 +32,24 @@
 			</div>
 		</header>
 		<!-- hero -->
-		<section class="dark-bg hero">
-			<div class="container">
+		<section class=" hero">
+			<div class="container dark-bg">
 				<div class="hero-content">
 					<p class="title-lebel line">A hair salon for men in Kyiv</p>
 					<h1 class="page-title title">BarberShop</h1>
 					<p>Мы эксперты в модных мужских стрижках. Работаем быстро, осторожно и со вкусом.</p>
 				</div>
-				<ul class="list socials-list line">
-					<li class="socials-item"> <a class="link" href="" target="_blanc" rel="noopener noreferrer"> Instagram
-						</a> </li>
-					<li class="socials-item"> <a class="link" href="" target="_blanc" rel="noopener noreferrer"> Youtube </a>
-					</li>
-				</ul>
+
+				<div class="hero-sidebar">
+					<ul class="list socials-list line">
+						<li class="socials-item">
+							<a class="link" href="" target="_blanc" rel="noopener noreferrer">Instagram</a>
+						</li>
+						<li class="socials-item">
+							<a class="link" href="" target="_blanc" rel="noopener noreferrer">Youtube</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</section>
 		<!-- about us -->
@@ -65,7 +71,7 @@
 						мы
 						всегда готовы усовершенствовать каждого, кто к нам приходит!
 					</p>
-					<a class="button" href="./">онлайн-запись</a>
+					<button class="button" type="button" data-modal-open href="./">онлайн-запись</button>
 				</div>
 			</div>
 		</section>
@@ -103,21 +109,21 @@
 		<!-- Почему приходят именно к нам? -->
 		<section class="section benefits">
 			<div class="container flexbox">
-				<ul class="list benefits-list content-box">
-					<li class="benefits-item">
-						<span class="benefits-number">600 <sup>+</sup> </span>
+				<ul class="list benefits-list content-box grid">
+					<li class="benefits-item grid-item">
+						<span class="benefits-number">600<sup>+</sup></span>
 						<p>Довольных клиентов в день</p>
 					</li>
-					<li class="benefits-item ">
-						<span class="benefits-number">50 <sup>+</sup> </span>
+					<li class="benefits-item grid-item ">
+						<span class="benefits-number">50<sup>+</sup></span>
 						<p>Наград за отличный сервис </p>
 					</li>
-					<li class="benefits-item">
-						<span class="benefits-number">20 <sup>+</sup> </span>
+					<li class="benefits-item grid-item">
+						<span class="benefits-number">20<sup>+</sup></span>
 						<p>Лучших мастеров Киева </p>
 					</li>
-					<li class="benefits-item">
-						<span class="benefits-number">100 <sup>+</sup> </span>
+					<li class="benefits-item grid-item">
+						<span class="benefits-number">100<sup>+</sup></span>
 						<p>Подарков постоянным клиентам</p>
 					</li>
 				</ul>
@@ -317,6 +323,13 @@
 			</ul>
 		</div>
 	</footer>
+	<div class="backdrop is-hidden" data-modal>
+		<div class="modal" >
+			<button class="btn-close" type="button" data-modal-close>X</button>
+			<p>Заказать</p>
+		</div>
+	</div>
+	<script src="./js/skript.js"></script>
 </body>
 
 </html>
